@@ -11,11 +11,29 @@ string c_strConverter(string &x)
 	char char_array[n+1];
 
 	strcpy(char_array,x.c_str());
-//	for (int i=0; i < n; i++)
-	//	std::cout<<char_array[i]<<std::endl;
-	//std::cout<<char_array;
 	return char_array;
 }
+
+string numberInString_checker(string &x)
+{
+	while (true)
+	{
+		for(int i = 0; i < x.length(); i++)
+		{
+			if(isdigit(c_strConverter(x)[i]))
+			{
+				std::cout<<"Theres a number in this string"<<std::endl;
+			return 0;
+			}
+			else
+			//	std::cout<<"Theres no number in this string"<<std::endl;
+			continue;
+		}
+	}
+
+return 0;
+}
+
 
 class Employee {
 //private is by default in C++ so it is not needed
@@ -116,21 +134,21 @@ int main()
 //	std::cout<<x.length();
 	char arr[x.length()];
 	c_strConverter(x)=arr;
-	while (true)
-	{
-	for (int i=0; i<x.length(); i++)
-	{
-		if(isdigit(c_strConverter(x)[i])){
-			std::cout<<"Theres a number in this string"<<std::endl;
-		return false;
-		}
-		else
-		//	std::cout<<"Theres no number in this string"<<std::endl;
-		continue;
-		
-	}
-	}
-
+//	while (true)
+//	{
+//	for (int i=0; i<x.length(); i++)
+//	{
+//		if(isdigit(c_strConverter(x)[i])){
+//			std::cout<<"Theres a number in this string"<<std::endl;
+//		return false;
+//		}
+//		else
+//		//	std::cout<<"Theres no number in this string"<<std::endl;
+//		continue;
+//		
+//	}
+//	}
+	std::cout<<numberInString_checker(x);
 }
 
 
