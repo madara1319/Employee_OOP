@@ -52,10 +52,10 @@ class Employee:AbstractEmployee {
 	private:
 //These are private to get to them you need to go through methods
 //This is basically the concept of encapsulation
-		string Name;
 		string Company;
 		int Age;
-
+	protected:
+		string Name;
 
 	public:
 
@@ -109,13 +109,23 @@ class Employee:AbstractEmployee {
 				std::cout<<Name<<" got promoted!" << std::endl;
 			else
 				std::cout<<Name<<", sorry NO promotion for you!"<<std::endl;
-		}
+		};
 
-//Creating your default constructor makes you lose your default constructor 
+//Virtual here means that if theres a diff definition in derived classes it will use them
+//if theres not it will use this 
+		virtual	void Work()
+		{
+			std::cout<<Name<<" is checking email, task backlog, performing tasks..."<<std::endl;
+		}
 };
 
+
+//Creating your default constructor makes you lose your default constructor 
+
+
 //Inheritance -> new class Developer inherits from class Employee
-class Developer:Employee
+//Class made to be public to access method AskForPromotion
+class Developer:public Employee
 {
 public:
 		string FavProgrammingLang;
@@ -126,8 +136,37 @@ public:
 		};
 		void FixBug()
 		{
-			std::cout<<getName()<<" fixed bug using "<<FavProgrammingLang<<std::endl;
+//If Name was private not protected you would have to use public getters setters
+//to get into it
+//			std::cout<<getName()<<" fixed bug using "<<FavProgrammingLang<<std::endl;
+			std::cout<<Name<<" fixed bug using "<<FavProgrammingLang<<std::endl;
+	
+		};
+		void Work()
+		{
+			std::cout<<Name<<" is writing "<<FavProgrammingLang <<" code"<<std::endl;
 		}
+
+};
+
+class Teacher:public Employee
+{
+public:
+	string Subject;
+	void PrepareLesson()
+	{
+		std::cout<<Name<<" is preparing " <<Subject<<" lesson"<<std::endl;
+	};
+	Teacher(string name, string company, int age,string subject)
+	:Employee(name, company,age)
+	{
+		Subject=subject;
+	};
+	void Work()
+	{
+		std::cout<<Name<<" is teaching "<<Subject<<std::endl;
+	}
+
 };
 
 
@@ -149,7 +188,20 @@ int main()
 	employee2.AskForPromotion();
 	Developer d=Developer("Maciek","YT",19,"C++");
 	d.FixBug();
+	d.AskForPromotion();
+	Teacher t=Teacher("Ania","Cool Schoold",35,"History");
+	t.PrepareLesson();
+	t.AskForPromotion();
+	employee1.Work();
+//	d.Work();
+//	t.Work();
+//	Pointer of base class has a reference to derive object this is 
+//	a concept of polymorphism
+	Employee* e1=&d;
+	Employee* e2=&t;
 
+	e1->Work();
+	e2->Work();
 
 
 }
