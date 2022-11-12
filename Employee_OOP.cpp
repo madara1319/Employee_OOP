@@ -7,32 +7,31 @@ using std::string;
 
 string c_strConverter(string &x)
 {	
-	int n = x.length();
-	char char_array[n+1];
+int n = x.length();
+char char_array[n+1];
 
-	strcpy(char_array,x.c_str());
-	return char_array;
+strcpy(char_array,x.c_str());
+return char_array;
 }
 
-string numberInString_checker(string &x)
+void numberInString_checker(string &x)
 {
-	while (true)
+while (true)
+{
+for(int i = 0; i < x.length(); i++)
+{
+	if(isdigit(c_strConverter(x)[i]))
 	{
-		for(int i = 0; i < x.length(); i++)
-		{
-			if(isdigit(c_strConverter(x)[i]))
-			{
-				std::cout<<"Theres a number in this string"<<std::endl;
-			return 0;
-			}
-			else
-				std::cout<<"Theres no number in this string"<<std::endl;
-			continue;
-		}
-		return 0;
+		std::cout<<"Theres a number in this string"<<std::endl;
+	break;
 	}
+	else
+		std::cout<<"Theres no number in this string"<<std::endl;
+	continue;
+}
+break;
+}
 
-return 0;
 }
 
 
@@ -45,19 +44,18 @@ class Employee {
 
 
 	public:
+
 //Setting Setters & getters for private parameters
 		void setName(string name)
 		{
-			string x {};
-			x=name;
-			numberInString_checker(name);
 			Name=name;
+			numberInString_checker(name);
 				
 		};
 		string getName()
 		{
 			return Name;
-		}
+		};
 		void setCompany(string company)
 		{
 			Company=company;
@@ -65,7 +63,7 @@ class Employee {
 		string getCompany()
 		{
 			return Company;
-		}
+		};
 		void setAge(int age)
 		{
 			if (age>=18)
@@ -102,8 +100,9 @@ int main()
 	Employee employee2=Employee("Szymon","Intel",26);
 //	employee2.IntroduceYourself();
 	employee1.setAge(15);
-	employee1.setName("Jacek");
-	std::cout<<employee1.getName()<<" is " <<employee1.getAge()<< " years old"<<std::endl;
+	employee1.setName("Jacek1");
+	std::cout<<"Siema";
+//	std::cout<<employee1.getName()<<" is " <<employee1.getAge()<< " years old"<<std::endl;
 
 }
 
