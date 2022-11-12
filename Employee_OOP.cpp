@@ -15,20 +15,22 @@ class Employee {
 		std::cout<< "Age - " << Age << std::endl;
 		
 	}
+//Creating a constructor, it does need to specify return type (like void) in front of, but it is a method just like IntroduceYourself, it needs to be named after class above it
+	Employee(string name, string company, int age)
+	{
+		Name=name;
+		Company=company;
+		Age=age;
+	}
+//Creating your default constructor makes you lose your default constructor 
 };
 
 int main()
 
 {
-	Employee employee1;
-	employee1.Name = "Mateusz";
-	employee1.Company = "NA-Engineering";
-	employee1.Age = 26;
+	Employee employee1=Employee("Mateusz","NA-Eng",26);
 	employee1.IntroduceYourself();
-	Employee employee2;
-	employee2.Name = "Szymon";
-	employee2.Company = "Intel";
-	employee2.Age = 26;
+	Employee employee2=Employee("Szymon","Intel",26);
 	employee2.IntroduceYourself();
 
 }
