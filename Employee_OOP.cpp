@@ -6,7 +6,8 @@
 using std::string;
 
 string c_strConverter(string &x)
-{	
+{
+//additional function for converting string into char array so its easier to find number 
 int n = x.length();
 char char_array[n+1];
 
@@ -14,24 +15,27 @@ strcpy(char_array,x.c_str());
 return char_array;
 }
 
-void numberInString_checker(string &x)
+bool numberInString_checker(string &x)
 {
-while (true)
-{
-for(int i = 0; i < x.length(); i++)
-{
-	if(isdigit(c_strConverter(x)[i]))
+	int a {};
+	for(int i = 0; i < x.length(); i++)
 	{
-		std::cout<<"Theres a number in this string"<<std::endl;
-	break;
-	}
-	else
-		std::cout<<"Theres no number in this string"<<std::endl;
-	continue;
-}
-break;
-}
+		if(isdigit(c_strConverter(x)[i]))
+		{
+//If theres a number in string return 0		
+			a=0;
+		break;
+		
 
+		}
+		else
+		{
+//If theres no number in string return 1
+			a=1;
+		continue;
+		}
+	}
+return a;
 }
 
 
@@ -48,8 +52,8 @@ class Employee {
 //Setting Setters & getters for private parameters
 		void setName(string name)
 		{
-			Name=name;
-			numberInString_checker(name);
+			if (numberInString_checker(name)==1)
+				Name=name;
 				
 		};
 		string getName()
@@ -96,13 +100,16 @@ int main()
 
 {
 	Employee employee1=Employee("Mateusz","NA-Eng",26);
-	employee1.IntroduceYourself();
+//	employee1.IntroduceYourself();
 	Employee employee2=Employee("Szymon","Intel",26);
 //	employee2.IntroduceYourself();
 	employee1.setAge(15);
-	employee1.setName("Jacek1");
-	std::cout<<"Siema";
-//	std::cout<<employee1.getName()<<" is " <<employee1.getAge()<< " years old"<<std::endl;
+	employee1.setName("Jacek");
+	employee2.setName("2Pawel");
+	std::cout<<employee2.getName()<<" is " <<employee2.getAge()<< " years old"<<std::endl;
+	std::cout<<employee1.getName()<<" is " <<employee1.getAge()<< " years old"<<std::endl;
+	string imie="Jacek";
+	std::cout<< numberInString_checker(imie);
 
 }
 
