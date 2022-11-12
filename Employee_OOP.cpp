@@ -25,6 +25,12 @@ int main()
 	employee1.Company = "NA-Engineering";
 	employee1.Age = 26;
 	employee1.IntroduceYourself();
+	Employee employee2;
+	employee2.Name = "Szymon";
+	employee2.Company = "Intel";
+	employee2.Age = 26;
+	employee2.IntroduceYourself();
+
 }
 
 
