@@ -26,9 +26,10 @@ string numberInString_checker(string &x)
 			return 0;
 			}
 			else
-			//	std::cout<<"Theres no number in this string"<<std::endl;
+				std::cout<<"Theres no number in this string"<<std::endl;
 			continue;
 		}
+		return 0;
 	}
 
 return 0;
@@ -46,7 +47,10 @@ class Employee {
 	public:
 //Setting Setters & getters for private parameters
 		void setName(string name)
-		{	
+		{
+			string x {};
+			x=name;
+			numberInString_checker(name);
 			Name=name;
 				
 		};
@@ -93,62 +97,14 @@ class Employee {
 int main()
 
 {
-//	Employee employee1=Employee("Mateusz","NA-Eng",26);
-//	employee1.IntroduceYourself();
-//	Employee employee2=Employee("Szymon","Intel",26);
+	Employee employee1=Employee("Mateusz","NA-Eng",26);
+	employee1.IntroduceYourself();
+	Employee employee2=Employee("Szymon","Intel",26);
 //	employee2.IntroduceYourself();
-//	employee1.setAge(15);
-//	std::cout<<employee1.getName()<<" is " <<employee1.getAge()<< " years old"<<std::endl;
-//
-//	char str[] = "3257fg";
-//	char secondStr[]="abecadlo12";
-//	for (int i=0; i<strlen(str); i++)
-//	{
-//		if(isdigit(str[i]))
-//			std::cout<<"The string contains int"<<std::endl;
-//		else
-//			std::cout<<"The string does not contain int"<<std::endl;
-//
-//	}
+	employee1.setAge(15);
+	employee1.setName("Jacek");
+	std::cout<<employee1.getName()<<" is " <<employee1.getAge()<< " years old"<<std::endl;
 
-//	while (true)
-//	{
-//	for (int i=0; i<strlen(secondStr); i++)
-//	{
-//		if(isdigit(secondStr[i])){
-//			std::cout<<"Theres a number in this string"<<std::endl;
-//		return false;
-//		}
-//		else
-//		//	std::cout<<"Theres no number in this string"<<std::endl;
-//		continue;
-//		
-//	}
-//	}
-	string x="adam12";
-//	std::cout<<"Podaj imie "<<std::endl;
-//	std::cin>> x;
-//	std::cout<<"Podane imie to x = "<< x << std::endl;
-//	std::cout<< c_strConverter(x);
-//	std::cout<<c_strConverter(x)[0];
-//	std::cout<<x.length();
-	char arr[x.length()];
-	c_strConverter(x)=arr;
-//	while (true)
-//	{
-//	for (int i=0; i<x.length(); i++)
-//	{
-//		if(isdigit(c_strConverter(x)[i])){
-//			std::cout<<"Theres a number in this string"<<std::endl;
-//		return false;
-//		}
-//		else
-//		//	std::cout<<"Theres no number in this string"<<std::endl;
-//		continue;
-//		
-//	}
-//	}
-	std::cout<<numberInString_checker(x);
 }
 
 
