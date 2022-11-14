@@ -4,7 +4,7 @@
 #include <typeinfo>
 
 using std::string;
-
+//____________________________________________________________________________________
 string c_strConverter(string &x)
 {
 //additional function for converting string into char array so its easier to find number 
@@ -14,6 +14,7 @@ char char_array[n+1];
 strcpy(char_array,x.c_str());
 return char_array;
 }
+//____________________________________________________________________________________
 
 bool numberInString_checker(string &x)
 {
@@ -37,6 +38,7 @@ bool numberInString_checker(string &x)
 	}
 return a;
 };
+//____________________________________________________________________________________
 //Below class is an Implementation of Abstraction
 //classes can inherit from this abstract class 
 //they have to sign contract defined within so provide implementation
@@ -56,6 +58,8 @@ class Employee:AbstractEmployee {
 		int Age;
 	protected:
 		string Name;
+
+//____________________________________________________________________________________
 
 	public:
 
@@ -88,6 +92,7 @@ class Employee:AbstractEmployee {
 			return Age;
 		};
 
+//____________________________________________________________________________________
 
 		void IntroduceYourself()
 		{
@@ -96,6 +101,8 @@ class Employee:AbstractEmployee {
 			std::cout<< "Age - " << Age << std::endl;
 			
 		};
+//____________________________________________________________________________________
+
 //Creating a constructor, it does need to specify return type (like void) in front of, but it is a method just like IntroduceYourself, it needs to be named after class above it
 		Employee(string name, string company, int age)
 		{
@@ -103,6 +110,8 @@ class Employee:AbstractEmployee {
 			Company=company;
 			Age=age;
 		};
+//____________________________________________________________________________________
+
 		void AskForPromotion()
 		{
 			if(Age>30)
@@ -118,11 +127,9 @@ class Employee:AbstractEmployee {
 			std::cout<<Name<<" is checking email, task backlog, performing tasks..."<<std::endl;
 		}
 };
-
+//____________________________________________________________________________________
 
 //Creating your default constructor makes you lose your default constructor 
-
-
 //Inheritance -> new class Developer inherits from class Employee
 //Class made to be public to access method AskForPromotion
 class Developer:public Employee
@@ -142,12 +149,16 @@ public:
 			std::cout<<Name<<" fixed bug using "<<FavProgrammingLang<<std::endl;
 	
 		};
+//____________________________________________________________________________________
+
 		void Work()
 		{
 			std::cout<<Name<<" is writing "<<FavProgrammingLang <<" code"<<std::endl;
 		}
 
 };
+
+//____________________________________________________________________________________
 
 class Teacher:public Employee
 {
@@ -169,6 +180,8 @@ public:
 
 };
 
+//____________________________________________________________________________________
+
 
 int main()
 
@@ -177,13 +190,18 @@ int main()
 //	employee1.IntroduceYourself();
 	Employee employee2=Employee("Szymon","Intel",26);
 //	employee2.IntroduceYourself();
+//____________________________________________________________________________________
+//
 	employee1.setAge(39);
 //	employee1.setName("Jacek");
 //	employee2.setName("2Pawel");
 //	std::cout<<employee2.getName()<<" is " <<employee2.getAge()<< " years old"<<std::endl;
 //	std::cout<<employee1.getName()<<" is " <<employee1.getAge()<< " years old"<<std::endl;
+//____________________________________________________________________________________
+//
 //	string imie="Jacek";
 //	std::cout<< numberInString_checker(imie);
+//____________________________________________________________________________________
 	employee1.AskForPromotion();
 	employee2.AskForPromotion();
 	Developer d=Developer("Maciek","YT",19,"C++");
@@ -193,6 +211,7 @@ int main()
 	t.PrepareLesson();
 	t.AskForPromotion();
 	employee1.Work();
+//____________________________________________________________________________________
 //	d.Work();
 //	t.Work();
 //	Pointer of base class has a reference to derive object this is 
